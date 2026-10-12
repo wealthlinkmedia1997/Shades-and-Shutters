@@ -35,12 +35,48 @@ function videoCardHTML(t) {
   `;
 }
 
+// Shown when a page asks for testimonials but none of them have a real
+// video. These are labeled stand-ins, not client stories and not files.
+const PLACEHOLDER_REVIEW_COUNT = 6;
+
+function placeholderReviewCardHTML() {
+  return `
+    <div class="testimonial-item is-placeholder">
+      <div class="video-card is-placeholder" role="img" aria-label="Placeholder video testimonial">
+        <div class="placeholder-thumb">
+          <span class="placeholder-badge">Placeholder</span>
+          <div class="play-btn" aria-hidden="true">${ICON_PLAY}</div>
+          <p class="placeholder-thumb-label">Video testimonial</p>
+        </div>
+      </div>
+      <p class="testimonial-quote">Client review</p>
+      <p class="testimonial-attribution">Client Name — Company</p>
+    </div>
+  `;
+}
+
+function realTestimonialsFor(ids) {
+  const list = Array.isArray(window.TESTIMONIALS) ? window.TESTIMONIALS : [];
+  const passed = Array.isArray(ids) ? ids : [];
+  return passed
+    .map((id) => list.find((t) => t && t.id === id))
+    .filter((t) => t && String(t.videoSrc || "").trim());
+}
+
 function renderTestimonials(containerId, ids) {
   const el = document.getElementById(containerId);
   if (!el) return;
-  const items = ids.map((id) => window.TESTIMONIALS.find((t) => t.id === id)).filter(Boolean);
-  el.innerHTML = items.map(videoCardHTML).join("");
+  const items = realTestimonialsFor(ids);
   el.classList.add("testimonial-grid");
+  if (!items.length) {
+    const cards = [];
+    for (let i = 0; i < PLACEHOLDER_REVIEW_COUNT; i++) cards.push(placeholderReviewCardHTML());
+    el.innerHTML = cards.join("");
+    el.classList.add("testimonial-placeholders");
+    return;
+  }
+  el.classList.remove("testimonial-placeholders");
+  el.innerHTML = items.map(videoCardHTML).join("");
   wireVideoCards(el);
 }
 

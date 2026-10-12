@@ -592,6 +592,79 @@ footer a {
   }
 }
 
+/* Empty testimonial lists render these stand-in cards instead of a blank
+   section. Muted thumbs and a Placeholder chip so they don't read as
+   broken videos or as real client reviews. */
+.testimonial-placeholders .video-card.is-placeholder {
+  cursor: default;
+  background: #2c2c2c;
+  border: 1px dashed rgba(212, 175, 55, 0.55);
+}
+.testimonial-placeholders .placeholder-thumb {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 12px 10px 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.28)),
+    repeating-linear-gradient(135deg, #3c3c3c 0 14px, #2a2a2a 14px 28px);
+}
+.testimonial-placeholders .placeholder-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(7, 7, 7, 0.78);
+  color: var(--gold);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+.testimonial-placeholders .video-card.is-placeholder .play-btn {
+  background: #5a5a5a;
+}
+.testimonial-placeholders .video-card.is-placeholder .play-btn svg {
+  fill: #e4e4e4;
+}
+.testimonial-placeholders .placeholder-thumb-label {
+  margin: 46px 0 0;
+  color: #d5d5d5;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+.testimonial-placeholders .testimonial-quote {
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 600;
+}
+.testimonial-placeholders .testimonial-attribution {
+  color: #8f8472;
+  font-size: 14px;
+  font-weight: 600;
+}
+@media (max-width: 899px) {
+  .testimonial-placeholders {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+    align-items: start;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .testimonial-placeholders .video-card.is-placeholder:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
 @media (min-width: 900px) {
   .testimonial-grid {
     display: grid;

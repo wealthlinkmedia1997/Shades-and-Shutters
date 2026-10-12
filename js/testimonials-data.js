@@ -3,8 +3,8 @@
 // assets/videos/ — no Google Drive dependency, plays as a plain
 // <video> tag (see wireVideoCards() in main.js).
 //
-// Intentionally empty for WealthLink Media. Widgets render nothing
-// until real testimonials and videos are added here.
+// Intentionally empty for WealthLink Media. renderTestimonials() draws
+// labeled placeholder cards until real video entries and ids are added.
 // ============================================================
 window.TESTIMONIALS = [];
 

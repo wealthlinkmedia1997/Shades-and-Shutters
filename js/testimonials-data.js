@@ -8,9 +8,9 @@
 // ============================================================
 window.TESTIMONIALS = [];
 
-// Explainer video shown at the top of booking/thank-you pages
-// ("Step 1: Watch This 2 Minute Video"). Empty videoSrc hides the
-// player and its step heading (see renderExplainerVideo() in main.js).
+// Explainer video on the homepage and thank-you page. An empty videoSrc
+// keeps the section visible as a labeled placeholder (see
+// renderExplainerVideo() in main.js). Do not point this at a fake file.
 window.EXPLAINER_VIDEO = {
   videoSrc: "",
   poster: "",

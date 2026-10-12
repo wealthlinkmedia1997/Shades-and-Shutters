@@ -237,17 +237,30 @@ function wireVideoCards(scopeEl, opts) {
   });
 }
 
+function explainerPlaceholderHTML() {
+  return `
+    <div class="explainer-video-wrap is-placeholder">
+      <div class="video-card is-placeholder explainer-placeholder" role="img" aria-label="Placeholder 2-minute explainer video">
+        <div class="placeholder-thumb">
+          <span class="placeholder-badge">Placeholder</span>
+          <div class="play-btn" aria-hidden="true">${ICON_PLAY}</div>
+          <p class="placeholder-thumb-label">2-min explainer</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function renderExplainerVideo(containerId, stepBarId, opts) {
   const el = document.getElementById(containerId);
-  if (!el || !window.EXPLAINER_VIDEO) return;
-  const v = window.EXPLAINER_VIDEO;
+  if (!el) return;
+  const v = window.EXPLAINER_VIDEO || {};
   const stepBar = stepBarId ? document.getElementById(stepBarId) : null;
-  if (!v.videoSrc) {
-    // Nothing configured yet - don't show a broken-looking placeholder box
-    // (or a "Step 1: Watch This Video" header with nothing under it), just
-    // don't render this section at all until a real video is set.
-    el.innerHTML = "";
-    if (stepBar) stepBar.style.display = "none";
+  if (stepBar) stepBar.style.display = "";
+  if (!String(v.videoSrc || "").trim()) {
+    // No file yet. Keep the section on screen as a labeled stand-in
+    // instead of hiding the heading and leaving an empty box.
+    el.innerHTML = explainerPlaceholderHTML();
     return;
   }
   el.innerHTML = `

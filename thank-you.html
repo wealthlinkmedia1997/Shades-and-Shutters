@@ -5,7 +5,7 @@
 <link rel="apple-touch-icon" href="assets/favicon.png">
 <title>Your Google Visibility Report Is Ready | WealthLink Media</title>
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="css/style.css?v=23">
+<link rel="stylesheet" href="css/style.css?v=24">
 <link rel="preload" as="image" href="assets/logo-transparent.png">
 <script src="js/config.js"></script>
 </head>
@@ -25,9 +25,8 @@
 
   <hr class="divider">
 
-  <!-- renderExplainerVideo() hides this heading entirely while
-       EXPLAINER_VIDEO.videoSrc is still empty in testimonials-data.js, so
-       there's no orphaned title sitting above nothing. -->
+  <!-- Stays visible when EXPLAINER_VIDEO.videoSrc is empty. The player
+       below is a labeled placeholder until a real file is set. -->
   <h2 id="stepBar">Watch This 2-Minute Video To See Exactly How We Rank Windows, Shades and Shutters Companies on Google &amp; ChatGPT</h2>
   <div id="explainer-video"></div>
 
@@ -49,7 +48,7 @@
 </div>
 
 <script src="js/testimonials-data.js?v=12"></script>
-<script src="js/main.js?v=16"></script>
+<script src="js/main.js?v=17"></script>
 <script>
   renderExplainerVideo("explainer-video", "stepBar", { autoplay: true });
   renderTestimonials("booking-testimonials", window.HOME_TESTIMONIAL_IDS);

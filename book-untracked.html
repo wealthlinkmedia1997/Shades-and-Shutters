@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
-<link rel="stylesheet" href="css/style.css?v=23">
+<link rel="stylesheet" href="css/style.css?v=24">
 <link rel="preload" as="image" href="assets/logo-transparent.png">
 <script src="js/config.js"></script>
 </head>
@@ -42,18 +42,13 @@
 </div>
 
 <script src="js/testimonials-data.js"></script>
-<script src="js/main.js?v=16"></script>
+<script src="js/main.js?v=17"></script>
 <script>
   renderLogo(document.getElementById("logo"));
 
-  // Hides the "Step 1" bar entirely while EXPLAINER_VIDEO.videoSrc is still
-  // empty (see testimonials-data.js)...
+  // Empty EXPLAINER_VIDEO.videoSrc renders a visible placeholder and
+  // leaves the Step 1 heading in place.
   renderExplainerVideo("explainer-video", "stepBar");
-
-  // ...which would otherwise leave a lone "Step 2" with no Step 1 above it.
-  if (!window.EXPLAINER_VIDEO || !window.EXPLAINER_VIDEO.videoSrc) {
-    document.getElementById("step2Heading").textContent = "Book a Call Below";
-  }
 
   loadGhlCalendar("calendarEmbed", window.RANKFLOW_CONFIG.GHL_CALENDAR_UNTRACKED_URL);
   renderTestimonials("booking-testimonials", window.BOOKING_TESTIMONIAL_IDS);

@@ -595,12 +595,22 @@ footer a {
 /* Empty testimonial lists render these stand-in cards instead of a blank
    section. Muted thumbs and a Placeholder chip so they don't read as
    broken videos or as real client reviews. */
-.testimonial-placeholders .video-card.is-placeholder {
+.testimonial-placeholders .video-card.is-placeholder,
+.explainer-video-wrap.is-placeholder .video-card.is-placeholder {
   cursor: default;
   background: #2c2c2c;
   border: 1px dashed rgba(212, 175, 55, 0.55);
 }
-.testimonial-placeholders .placeholder-thumb {
+.explainer-video-wrap.is-placeholder {
+  margin: 6px auto 22px;
+}
+.video-card.explainer-placeholder {
+  aspect-ratio: 16 / 9;
+  max-height: none;
+  margin-bottom: 0;
+}
+.testimonial-placeholders .placeholder-thumb,
+.explainer-video-wrap.is-placeholder .placeholder-thumb {
   position: absolute;
   inset: 0;
   display: flex;
@@ -612,7 +622,8 @@ footer a {
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.28)),
     repeating-linear-gradient(135deg, #3c3c3c 0 14px, #2a2a2a 14px 28px);
 }
-.testimonial-placeholders .placeholder-badge {
+.testimonial-placeholders .placeholder-badge,
+.explainer-video-wrap.is-placeholder .placeholder-badge {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -626,13 +637,16 @@ footer a {
   padding: 4px 8px;
   border-radius: 999px;
 }
-.testimonial-placeholders .video-card.is-placeholder .play-btn {
+.testimonial-placeholders .video-card.is-placeholder .play-btn,
+.explainer-video-wrap.is-placeholder .play-btn {
   background: #5a5a5a;
 }
-.testimonial-placeholders .video-card.is-placeholder .play-btn svg {
+.testimonial-placeholders .video-card.is-placeholder .play-btn svg,
+.explainer-video-wrap.is-placeholder .play-btn svg {
   fill: #e4e4e4;
 }
-.testimonial-placeholders .placeholder-thumb-label {
+.testimonial-placeholders .placeholder-thumb-label,
+.explainer-video-wrap.is-placeholder .placeholder-thumb-label {
   margin: 46px 0 0;
   color: #d5d5d5;
   font-size: 13px;
@@ -659,7 +673,7 @@ footer a {
   }
 }
 @media (hover: hover) and (pointer: fine) {
-  .testimonial-placeholders .video-card.is-placeholder:hover {
+  .video-card.is-placeholder:hover {
     transform: none;
     box-shadow: none;
   }

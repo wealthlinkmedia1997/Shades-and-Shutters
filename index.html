@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rank on Google &amp; ChatGPT | WealthLink Media</title>
+<meta name="description" content="WealthLink Media helps windows, shades and shutters companies rank on Google and ChatGPT.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="stylesheet" href="css/style.css?v=22">
+<script src="js/config.js?v=5"></script>
+</head>
+<body>
+<div class="thankyou-header">
+  <img src="assets/logo-transparent.png" alt="WealthLink Media" class="logo-img">
+</div>
+<p class="hero-kicker">For Windows, Shades and Shutters Clients</p>
+<div class="wrap">
+
+  <h1>How We Get Windows, Shades and Shutters Companies Ranking on <span class="accent">Google</span> and <span class="accent">ChatGPT</span></h1>
+
+  <p class="hero-sub">WealthLink Media puts windows, shades and shutters companies in front of people searching on Google and ChatGPT. No ad spend, no cold calling, no chasing reviews.</p>
+
+  <div id="explainer-video"></div>
+
+  <!-- Lead form, right on the page - no popup. Submitting it (wireLeadForm
+       in main.js) posts to the lead webhook and sends the visitor to
+       thank-you.html; there's no revenue/GBP question on this form, so
+       wireLeadForm's own defensive checks skip straight to that redirect. -->
+  <div class="cta-box">
+    <span class="cta-badge">1 Company Per Area</span>
+    <p class="cta-box-heading">Get Your Free Google Visibility Report</p>
+    <p class="modal-sub">Tell us your business name and we'll show you exactly where you're ranking, where your competitors are beating you, and what it's costing you every month.</p>
+    <form id="leadFormTop" class="lead-form" novalidate>
+      <div class="field" data-step="businessName">
+        <div class="field-inner">
+          <label for="topBusinessName">Business Name</label>
+          <div class="autocomplete-wrapper">
+            <input type="text" id="topBusinessName" name="businessName" placeholder="Summit Shades &amp; Shutters"
+                   autocomplete="off" role="combobox" aria-autocomplete="list"
+                   aria-controls="topSuggestions" aria-expanded="false">
+            <span class="ac-spinner" hidden></span>
+            <ul class="ac-suggestions" id="topSuggestions" role="listbox" hidden></ul>
+          </div>
+          <input type="hidden" name="placeId" value="">
+          <input type="hidden" name="placeAddress" value="">
+        </div>
+      </div>
+      <div class="field" data-step="firstName">
+        <div class="field-inner">
+          <label for="topFirstName">Full Name</label>
+          <input type="text" id="topFirstName" name="firstName" placeholder="John Smith" autocomplete="name">
+        </div>
+      </div>
+      <div class="field" data-step="phone">
+        <div class="field-inner">
+          <label for="topPhone">Phone Number</label>
+          <input type="tel" id="topPhone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" inputmode="tel">
+        </div>
+      </div>
+      <div class="field" data-step="submit">
+        <div class="field-inner">
+          <button type="submit" class="btn">Get My Free Report</button>
+          <p class="fine-print">We'll call you today with your results.</p>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <hr class="divider">
+
+  <h2 id="testimonials">What Windows, Shades and Shutters Clients Are Saying</h2>
+  <div id="booking-testimonials"></div>
+
+  <div class="cta-box">
+    <span class="cta-badge">1 Company Per Area</span>
+    <p class="cta-box-heading">Ready For Your Free Report?</p>
+    <p class="modal-sub">Same deal. Tell us your business name and we'll run the scan, show you where you stand, and show you exactly what to fix.</p>
+    <form id="leadFormBottom" class="lead-form" novalidate>
+      <div class="field" data-step="businessName">
+        <div class="field-inner">
+          <label for="bottomBusinessName">Business Name</label>
+          <div class="autocomplete-wrapper">
+            <input type="text" id="bottomBusinessName" name="businessName" placeholder="Summit Shades &amp; Shutters"
+                   autocomplete="off" role="combobox" aria-autocomplete="list"
+                   aria-controls="bottomSuggestions" aria-expanded="false">
+            <span class="ac-spinner" hidden></span>
+            <ul class="ac-suggestions" id="bottomSuggestions" role="listbox" hidden></ul>
+          </div>
+          <input type="hidden" name="placeId" value="">
+          <input type="hidden" name="placeAddress" value="">
+        </div>
+      </div>
+      <div class="field" data-step="firstName">
+        <div class="field-inner">
+          <label for="bottomFirstName">Full Name</label>
+          <input type="text" id="bottomFirstName" name="firstName" placeholder="John Smith" autocomplete="name">
+        </div>
+      </div>
+      <div class="field" data-step="phone">
+        <div class="field-inner">
+          <label for="bottomPhone">Phone Number</label>
+          <input type="tel" id="bottomPhone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" inputmode="tel">
+        </div>
+      </div>
+      <div class="field" data-step="submit">
+        <div class="field-inner">
+          <button type="submit" class="btn">Get My Free Report</button>
+          <p class="fine-print">We'll call you today with your results.</p>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <footer>© Copyright WealthLink Media 2026 | All Rights Reserved · <a href="privacy">Privacy Policy</a></footer>
+</div>
+
+<script src="js/testimonials-data.js?v=12"></script>
+<script src="js/main.js?v=15"></script>
+<script>
+  // Everything below used to be book-tracked.html's own page - now built
+  // straight into the homepage instead of being a separate destination.
+  renderExplainerVideo("explainer-video", null, { autoplay: true });
+
+  renderTestimonials("booking-testimonials", window.HOME_TESTIMONIAL_IDS);
+  [document.getElementById("leadFormTop"), document.getElementById("leadFormBottom")].forEach((f) => {
+    wireLeadForm(f);
+    wireProgressiveForm(f);
+  });
+  wireBusinessAutocomplete(document.getElementById("topBusinessName"));
+  wireBusinessAutocomplete(document.getElementById("bottomBusinessName"));
+</script>
+
+</body></html>

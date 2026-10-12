@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We Can't Help Just Yet | WealthLink Media</title>
+<meta name="description" content="We only work with established windows, shades and shutters companies right now.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="stylesheet" href="css/style.css?v=22">
+<script src="js/config.js"></script>
+</head>
+<body>
+<div class="wrap page-short">
+
+  <div class="logo" id="logo"></div>
+
+  <h1>Sorry, We Can't Help Just Yet</h1>
+
+  <p class="page-copy" id="sorryCopy">
+    Appreciate you reaching out about ranking on Google and ChatGPT. We only work with
+    established windows, shades and shutters companies right now, so we're not the right fit yet. Keep building
+    and hit us back up when you're there.
+  </p>
+
+  <footer>© Copyright WealthLink Media 2026 | All Rights Reserved</footer>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  renderLogo(document.getElementById("logo"));
+
+  // The first name arrives as ?fn= on the redirect (and is also in
+  // sessionStorage as a fallback). If we don't have one, the sentence just
+  // starts without a greeting rather than saying "Hey ,".
+  (function () {
+    var name = getLeadFirstName();
+    if (!name) return;
+    var el = document.getElementById("sorryCopy");
+    el.textContent = "Hey " + name + ", a" + el.textContent.trim().slice(1);
+  })();
+</script>
+
+</body></html>
